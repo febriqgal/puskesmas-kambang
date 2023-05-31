@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Layout from "@/components/layout";
 import Head from "next/head";
+import { Button } from "@nextui-org/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
