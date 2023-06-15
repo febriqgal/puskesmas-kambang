@@ -55,7 +55,7 @@ export default function Footer() {
   };
   return (
     <footer className="w-full ">
-      <div className="bg-[#014E00] rounded-t-lg bottom-0 relative">
+      <div className="bg-[#014E00] rounded-t-lg bottom-0">
         <div className="flex flex-col md:flex-row justify-between py-10 px-10 lg:px-20">
           <div className="space-y-8 xl:col-span-1 mr-10 mb-10 md:mb-0  w-[320px]">
             <h1 className="text-slate-50">

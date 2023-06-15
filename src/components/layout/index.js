@@ -10,10 +10,9 @@ import Profile from "../../../public/person.svg";
 import FooterC from "../footerC";
 import { Poppins } from "next/font/google";
 const navigation = [
-  { name: "Beranda", href: "/" },
   { name: "Berita", href: "/berita" },
   { name: "Jadwal Dokter", href: "/jadwal-dokter" },
-  { name: "Sejarah", href: "/sejarah" },
+  { name: "Visi & Misi", href: "/visi-misi" },
   { name: "Struktur Organisasi", href: "/struktur-organisasi" },
 ];
 const poppins = Poppins({
@@ -45,7 +44,11 @@ export default function Layout({ children }) {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <Link
+                  title="Beranda Puskesmas Kambang"
+                  href={"/"}
+                  className="flex flex-shrink-0 items-center"
+                >
                   <Image
                     className="block h-8 w-auto lg:hidden"
                     src={Logo}
@@ -56,7 +59,7 @@ export default function Layout({ children }) {
                     src={Logo}
                     alt="Your Company"
                   />
-                </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (

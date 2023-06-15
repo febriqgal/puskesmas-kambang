@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "animate.css/animate.min.css";
 import * as React from "react";
 import NextNProgress from "nextjs-progressbar";
 // 1. import `NextUIProvider` component
