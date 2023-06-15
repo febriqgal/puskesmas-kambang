@@ -10,7 +10,7 @@ export default function JadwalDokter() {
         <title>Jadwal Dokter - Puskesmas Kambang</title>
         <link rel="icon" href="/logo.jpg" />
       </Head>
-      <div className="min-h-screen px-20 pb-10 animate__animated animate__fadeInUpBig">
+      <div className="min-h-screen px-10 lg:px-20 pb-10 animate__animated animate__fadeInUpBig">
         <Table
           aria-label="Example table with static content"
           css={{

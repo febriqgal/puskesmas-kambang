@@ -9,6 +9,8 @@ import Logo from "../../../public/logo.jpg";
 import Profile from "../../../public/person.svg";
 import FooterC from "../footerC";
 import { Poppins } from "next/font/google";
+import { signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 const navigation = [
   { name: "Berita", href: "/berita" },
   { name: "Jadwal Dokter", href: "/jadwal-dokter" },
@@ -26,6 +28,9 @@ function classNames(...classes) {
 
 export default function Layout({ children }) {
   const route = useRouter();
+  const user = getAuth().currentUser;
+
+  const auth = getAuth();
   return (
     <Disclosure as="nav">
       {({ open }) => (
@@ -104,48 +109,55 @@ export default function Layout({ children }) {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-[#014E00] ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         <h1 className={"font-bold block px-4 py-2 text-sm"}>
-                          -
+                          {user?.displayName}
                         </h1>
                       </Menu.Item>
 
                       <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Dashboard Admin
-                          </Link>
-                        )}
+                        {({ active }) =>
+                          user ? (
+                            <Link
+                              href="/admin"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              Dashboard
+                            </Link>
+                          ) : (
+                            <></>
+                          )
+                        }
                       </Menu.Item>
+
                       <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Pengaturan
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/login"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Login
-                          </Link>
-                        )}
+                        {({ active }) =>
+                          user ? (
+                            <h1
+                              onClick={async () => {
+                                await signOut(auth);
+                                route.replace("/");
+                              }}
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700 hover:cursor-pointer"
+                              )}
+                            >
+                              Keluar
+                            </h1>
+                          ) : (
+                            <Link
+                              href="/login"
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700 hover:cursor-pointer"
+                              )}
+                            >
+                              Login
+                            </Link>
+                          )
+                        }
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>

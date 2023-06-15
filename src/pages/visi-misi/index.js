@@ -9,7 +9,7 @@ export default function VisiMisi() {
         <title>Sejarah - Puskesmas Kambang</title>
         <link rel="icon" href="/logo.jpg" />
       </Head>
-      <div className="flex justify-center items-center min-h-screen p-10 mb-10 mx-20 animate__animated animate__fadeInUpBig bg-gray-200 border-2 border-green-950 rounded-xl shadow-2xl">
+      <div className="flex justify-center items-center min-h-screen p-10 mb-10 mx-10 lg:mx-20 animate__animated animate__fadeInUpBig bg-gray-200 border-2 border-green-950 rounded-xl shadow-2xl">
         <div>
           <div className="mb-5">
             <h1 className="font-bold">1. Visi</h1>
