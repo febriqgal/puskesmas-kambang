@@ -1,215 +1,96 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @next/next/no-img-element */
 import Layout from "@/components/layout";
+import { db } from "@/server/db";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Button, Loading } from "@nextui-org/react";
+import dayjs from "dayjs";
+import "dayjs/locale/id";
+import relativeTime from "dayjs/plugin/relativeTime";
+import {
+  collection,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  updateDoc,
+} from "firebase/firestore";
 import Head from "next/head";
-import React from "react";
-import { Table } from "@nextui-org/react";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useRef, useState } from "react";
+import styles from "../../styles/Home.module.css";
+export default function LayouUser() {
+  const route = useRouter();
+  dayjs.locale("id");
+  dayjs.extend(relativeTime);
+  const snapshot = useRef(null);
+  const [isLoading, setIsloading] = useState(true);
+  const getDBFromFirestore = async () => {
+    const querySnapshot = query(
+      collection(db, "jadwal_dokter"),
+      orderBy("nama", "asc")
+    );
+    const gettt = await getDocs(querySnapshot);
+    snapshot.current = gettt.docs;
+    setTimeout(() => {
+      setIsloading(false);
+    }, 1000);
+  };
 
-export default function JadwalDokter() {
-  return (
-    <Layout>
-      <Head>
-        <title>Jadwal Dokter - Puskesmas Kambang</title>
-        <link rel="icon" href="/logo.jpg" />
-      </Head>
-      <div className="min-h-screen px-10 lg:px-20 pb-10 animate__animated animate__fadeInUpBig">
-        <Table
-          aria-label="Example table with static content"
-          css={{
-            height: "auto",
-            minWidth: "100%",
-          }}
-        >
-          <Table.Header>
-            <Table.Column>Nama</Table.Column>
-            <Table.Column>Poli</Table.Column>
-            <Table.Column>Jadwal</Table.Column>
-            <Table.Column>STATUS</Table.Column>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="1"
-            >
-              <Table.Cell>Roza Andriyani, Amd. PK.</Table.Cell>
-              <Table.Cell>Rekam Medis</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="2"
-            >
-              <Table.Cell>Karlina Emi, S.ST</Table.Cell>
-              <Table.Cell>Pelayanan Kesehatan Ibu</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="3"
-            >
-              <Table.Cell>Mira Farizawati, Amd. Kep.</Table.Cell>
-              <Table.Cell>Pelayanan Umum</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Eni Amarni, Amd. Ak.</Table.Cell>
-              <Table.Cell>Laboratorium</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Yurliza Nengsih, Amd. Keb.</Table.Cell>
-              <Table.Cell>Pelayanan KB</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>drg. Sandria Ilzatika</Table.Cell>
-              <Table.Cell>Pelayanan Gigi & Mulut</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Devi Osdar, Amd. Keb.</Table.Cell>
-              <Table.Cell>Pelayanan Kesehatan Anak</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Aprisal, Amd. Kep.</Table.Cell>
-              <Table.Cell>Pelayanan Usila</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Neneng Mustika A., S.Farm.</Table.Cell>
-              <Table.Cell>Kefarmasian</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Mira Farizawati, Amd. Kep.</Table.Cell>
-              <Table.Cell>Pelayanan Imunisasi</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Rahyoni Ardianti, AMG</Table.Cell>
-              <Table.Cell>Pelayanan Gizi</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Deri Zarwita, SKM.M.Kes.</Table.Cell>
-              <Table.Cell>Klik Sanitasi</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Ns. Yusmarlinda, S.Kep.</Table.Cell>
-              <Table.Cell>UGD</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-            <Table.Row
-              css={{
-                border: "$space$1 solid transparent",
-                borderRadius: "$lg",
-                "&:hover": { background: "#014E00", color: "$white" },
-              }}
-              key="4"
-            >
-              <Table.Cell>Andri Dedi, SKM. MM.</Table.Cell>
-              <Table.Cell>Rawat Inap</Table.Cell>
-              <Table.Cell>{`Sabtu, 31 Mei 2023 (08.00 - 15.00)`}</Table.Cell>
-              <Table.Cell>Ada</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
+  useEffect(() => {
+    getDBFromFirestore();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className={styles.main}>
+        <Loading color={"currentColor"} />
       </div>
-    </Layout>
-  );
+    );
+  } else {
+    const post = snapshot.current;
+    const data = Object.values(post);
+    return (
+      <Layout>
+        <Head>
+          <title>Berita - Puskesmas Kambang</title>
+          <meta name="description" content="Generated by create next app" />
+          <link rel="icon" href="/logo.jpg" />
+        </Head>
+
+        <div className="overflow-x-auto px-20  pb-10">
+          <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+            <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
+              <tr>
+                <th className="text-left px-4 py-2 font-medium">Nama</th>
+                <th className="text-left px-4 py-2 font-medium">Poli</th>
+                <th className="text-left px-4 py-2 font-medium">Jadwal</th>
+                <th className="px-4 py-2 font-medium">Status</th>
+              </tr>
+            </thead>
+
+            <tbody className="divide-y divide-gray-200">
+              {data.map((e, i) => {
+                const Data = e.data();
+                return (
+                  <tr
+                    key={i}
+                    className=" bg-gray-50 hover:bg-[#014E00] hover:text-white rounded-lg hover:rounded-lg"
+                  >
+                    <td className="px-4 py-2 font-medium">{Data.nama}</td>
+                    <td className="px-4 py-2">{Data.poli}</td>
+                    <td className="px-4 py-2">{Data.tanggal_jadwal}</td>
+                    <td className="px-4 py-2 flex justify-center items-center">
+                      <h1 className="bg-[#014E00] text-white rounded-md px-2 py-1">{Data.status}</h1>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </Layout>
+    );
+  }
 }

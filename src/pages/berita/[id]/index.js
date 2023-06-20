@@ -84,7 +84,7 @@ export default function detail() {
                     </h3>
                   </Tooltip>
                 </div>
-                {email === "benisman1990@gmail.com" ? (
+                {email === "admin@puskesmaskambang.com" ? (
                   <>
                     <button
                       onClick={() => {
@@ -114,7 +114,7 @@ export default function detail() {
                 onClose={closeHandler}
               >
                 <Modal.Body>
-                  <h1 className="text-center m-auto">Yakin Menghapus?</h1>
+                  <h1 className="text-center m-auto pb-5">Yakin Menghapus?</h1>
                   <button
                     className="bg-red-500 py-1 px-4 rounded-lg text-white"
                     onClick={async () => {
@@ -126,10 +126,7 @@ export default function detail() {
                       );
                       await deleteObject(desertRef);
                       await deleteDoc(docRef);
-                      route.push("/");
-                      setTimeout(() => {
-                        window.location.reload();
-                      }, 3000);
+                      route.push("/berita");
                     }}
                   >
                     Hapus

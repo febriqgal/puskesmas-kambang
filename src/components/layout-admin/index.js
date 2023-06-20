@@ -18,9 +18,18 @@ import CardProfile from "../card-profile";
 const LayoutAdmin = ({ children }) => {
   const navigation = [
     { name: "Beranda", icon: home, href: "/admin" },
-    { name: "Tambah Berita", icon: tambahberita, href: "/admin/tambah-berita" },
+    {
+      name: "Kelola Berita",
+      icon: kelolapengaduan,
+      href: "/admin/kelola-berita",
+    },
     {
       name: "Kelola Jadwal Dokter",
+      icon: kelolapengaduan,
+      href: "/admin/kelola-jadwal-dokter",
+    },
+    {
+      name: "Kelola Data Pasien",
       icon: kelolapengaduan,
       href: "#",
     },
@@ -35,10 +44,10 @@ const LayoutAdmin = ({ children }) => {
         <link rel="icon" href="/logo.png" />
       </Head>
       {/* Mobile */}
-      <div className="md:hidden w-full py-2 m-auto items-center bottom-1 fixed z-[9999]">
+      <div className="md:hidden w-full py-2 m-auto items-center bottom-1 fixed z-[9999] bg-white shadow-xl mx-2">
         <div className="shadow-xl mx-5 p-5 flex justify-between rounded-lg">
           {navigation.map((e, i) => (
-            <Link className="flex justify-around" key={i} href={e.href}>
+            <Link className="flex-col items-center" key={i} href={e.href}>
               <Image src={e.icon} width={30} alt={"#"} />
             </Link>
           ))}
