@@ -67,10 +67,7 @@ export default function Admin() {
           <title>Tambah Berita - Puskesmas Kambang</title>
           <link rel="icon" href="/logo.jpg" />
         </Head>
-        <div className="flex gap-2 p-4 place-items-center">
-          <Image width={20} src={homeroute} alt={"#"} />
-          <h1 className="text-xs">Admin / Kelola Berita / Tambah Berita</h1>
-        </div>
+
         <Toaster />
         <form
           className="flex space-y-3 flex-col w-full md:w-[500px] justify-center m-auto pt-10 px-10"
