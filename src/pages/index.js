@@ -10,12 +10,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Head from "next/head";
 import Populer from "../../public/populer.svg";
 export default function ComCarouselHeader() {
   const ref = useRef(null);
 
   return (
     <Layout>
+      <Head>
+        <title>Puskesmas Kambang</title>
+
+        <link rel="icon" href="/logo.jpg" />
+      </Head>
       <Swiper
         className="md:h-96"
         // install Swiper modules
@@ -33,7 +39,7 @@ export default function ComCarouselHeader() {
       >
         <SwiperSlide>
           <img
-            className="object-cover h-full w-full"
+            className="object-cover w-full h-full"
             src={
               "https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80"
             }
@@ -42,7 +48,7 @@ export default function ComCarouselHeader() {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="object-cover h-full w-full"
+            className="object-cover w-full h-full"
             src={
               "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=853&q=80"
             }
@@ -51,7 +57,7 @@ export default function ComCarouselHeader() {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="object-cover h-full w-full"
+            className="object-cover w-full h-full"
             src={
               "https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80"
             }
@@ -60,7 +66,7 @@ export default function ComCarouselHeader() {
         </SwiperSlide>{" "}
         <SwiperSlide>
           <img
-            className="object-cover h-full w-full"
+            className="object-cover w-full h-full"
             src={
               "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80"
             }
@@ -68,7 +74,7 @@ export default function ComCarouselHeader() {
           />
         </SwiperSlide>
       </Swiper>
-      <div className="flex justify-center items-center pt-10">
+      <div className="flex items-center justify-center pt-10">
         <Image src={Populer} alt="#" />
         <h1 className="ml-2">Berita Populer</h1>
       </div>

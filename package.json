@@ -18,8 +18,6 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "firebase": "^9.22.1",
-    "flowbite": "^1.6.6",
-    "flowbite-react": "^0.4.7",
     "next": "13.4.4",
     "nextjs-progressbar": "^0.0.16",
     "postcss": "^8.4.24",

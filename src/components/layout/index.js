@@ -35,32 +35,32 @@ export default function Layout({ children }) {
     <Disclosure as="nav">
       {({ open }) => (
         <div className={poppins.className}>
-          <div className="lg:px-20 px-10">
-            <div className="relative flex h-16 items-center justify-between">
+          <div className="px-10 lg:px-20">
+            <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#014E00] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="block w-6 h-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="block w-6 h-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                 <Link
                   title="Beranda Puskesmas Kambang"
                   href={"/"}
-                  className="flex flex-shrink-0 items-center"
+                  className="flex items-center flex-shrink-0"
                 >
                   <Image
-                    className="block h-8 w-auto lg:hidden"
+                    className="block w-auto h-8 lg:hidden"
                     src={Logo}
                     alt="Your Company"
                   />
                   <Image
-                    className="hidden h-8 w-auto lg:block"
+                    className="hidden w-auto h-8 lg:block"
                     src={Logo}
                     alt="Your Company"
                   />
@@ -88,10 +88,10 @@ export default function Layout({ children }) {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full   text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <Image
-                        className="h-8 w-8 rounded-full"
+                        className="w-8 h-8 rounded-full"
                         src={Profile}
                         alt=""
                       />
@@ -117,7 +117,7 @@ export default function Layout({ children }) {
                         {({ active }) =>
                           user ? (
                             <Link
-                              href="/admin"
+                              href="/admin/kelola-data-pasien"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
@@ -166,7 +166,7 @@ export default function Layout({ children }) {
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 flex flex-col">
+            <div className="flex flex-col px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
