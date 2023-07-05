@@ -64,10 +64,10 @@ export default function detail() {
           className="flex flex-col text-slate-900 w-full px-5 sm:w-[500px]"
           onSubmit={handleSubmit(updateDataa)}
         >
-          <label className="text-center mb-2">
+          <label className="mb-2 text-center">
             Judul
             <textarea
-              className="mb-2  py-1 px-3 w-full rounded-lg mr-2 shadow-lg"
+              className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
               placeholder="Masukan judul*"
               control={control}
               disabled={isDisable}
@@ -75,11 +75,11 @@ export default function detail() {
               {...register("judul", { required: true })}
             />
           </label>
-          <label className="text-center mb-2">
+          <label className="mb-2 text-center">
             Isi Berita
             <textarea
               rows={"10"}
-              className="mb-2 py-1 px-3 w-full rounded-lg mr-2 shadow-lg"
+              className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
               placeholder="Masukan isi*"
               control={control}
               disabled={isDisable}
@@ -90,7 +90,7 @@ export default function detail() {
 
           <button
             disabled={isDisable}
-            className="hover:bg-gray-900 w-full duration-1000 shadow-lg hover:text-white mb-2 py-1 px-3 rounded-lg hover:cursor-pointer"
+            className="w-full px-3 py-1 mb-2 duration-1000 rounded-lg shadow-lg hover:bg-gray-900 hover:text-white hover:cursor-pointer"
             type="submit"
           >
             Kirim

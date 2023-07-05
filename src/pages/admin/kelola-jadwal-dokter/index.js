@@ -60,13 +60,14 @@ export default function LayouUser() {
           <link rel="icon" href="/logo.jpg" />
         </Head>
 
-        <div className="overflow-x-auto p-10">
-          <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+        <div className="p-10 overflow-x-auto">
+          <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>
-                <th className="text-left px-4 py-2 font-medium">Nama</th>
-                <th className="text-left px-4 py-2 font-medium">Poli</th>
-                <th className="text-left px-4 py-2 font-medium">Jadwal</th>
+                <th className="px-4 py-2 font-medium text-left">No.</th>
+                <th className="px-4 py-2 font-medium text-left">Nama</th>
+                <th className="px-4 py-2 font-medium text-left">Poli</th>
+                <th className="px-4 py-2 font-medium text-left">Jadwal</th>
                 <th className="px-4 py-2 font-medium">Status</th>
               </tr>
             </thead>
@@ -79,10 +80,11 @@ export default function LayouUser() {
                     key={i}
                     className=" bg-gray-50 hover:bg-[#014E00] hover:text-white rounded-lg hover:rounded-lg"
                   >
+                    <td className="px-4 py-2 font-medium">{i + 1}.</td>
                     <td className="px-4 py-2 font-medium">{Data.nama}</td>
                     <td className="px-4 py-2">{Data.poli}</td>
                     <td className="px-4 py-2">{Data.tanggal_jadwal}</td>
-                    <td className="px-4 py-2 flex justify-center items-center">
+                    <td className="flex items-center justify-center px-4 py-2">
                       <Menu
                         as="div"
                         className="relative inline-block text-left"
@@ -91,7 +93,7 @@ export default function LayouUser() {
                           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-[#014E00]  px-4 py-1 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                             {Data.status}
                             <ChevronDownIcon
-                              className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+                              className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
                               aria-hidden="true"
                             />
                           </Menu.Button>
@@ -105,7 +107,7 @@ export default function LayouUser() {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
                         >
-                          <Menu.Items className="flex-col justify-center items-center text-center   mt-2 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Items className="flex-col items-center justify-center mt-2 text-center origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <button
                               onClick={async () => {
                                 const frankDocRef = doc(

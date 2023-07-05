@@ -67,10 +67,11 @@ export default function LayouUser() {
           <Image height={30} src={Tambah} alt="#" />
           <h1>Tambah Pasien</h1>
         </Link>
-        <div className="px-20 overflow-x-auto">
+        <div className="px-10 overflow-x-auto">
           <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>
+                <th className="px-4 py-2 font-medium text-left">No.</th>
                 <th className="px-4 py-2 font-medium text-left">NIK</th>
                 <th className="px-4 py-2 font-medium text-left">Nama</th>
                 <th className="px-4 py-2 font-medium text-left">Umur</th>
@@ -93,6 +94,7 @@ export default function LayouUser() {
                     key={i}
                     className=" bg-gray-50 hover:bg-[#014E00] hover:text-white rounded-lg hover:rounded-lg"
                   >
+                    <td className="px-4 py-2 font-medium">{i + 1}.</td>
                     <td className="px-4 py-2 font-medium">{Data.nik}</td>
                     <td className="px-4 py-2 font-medium">{Data.nama}</td>
                     <td className="px-4 py-2 font-medium">{Data.umur}</td>

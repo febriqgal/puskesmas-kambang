@@ -71,7 +71,7 @@ export default function detail() {
           onSubmit={handleSubmit(updateDataa)}
         >
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
@@ -79,7 +79,7 @@ export default function detail() {
             {...register("nik", { required: true })}
           />
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
@@ -87,7 +87,7 @@ export default function detail() {
             {...register("nama", { required: true })}
           />
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
@@ -95,7 +95,7 @@ export default function detail() {
             {...register("umur", { required: true })}
           />
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
@@ -103,7 +103,7 @@ export default function detail() {
             {...register("tgl_lahir", { required: true })}
           />{" "}
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
@@ -111,7 +111,7 @@ export default function detail() {
             {...register("alamat", { required: true })}
           />
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
@@ -119,15 +119,15 @@ export default function detail() {
             {...register("keluhan", { required: true })}
           />
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
-            disabled={isDisable}
+            disabled={true}
             defaultValue={post ? post.nmdokter : ""}
             {...register("nmdokter", { required: true })}
           />{" "}
           <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
