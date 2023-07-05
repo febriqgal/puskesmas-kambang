@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import LayoutAdmin from "@/components/layout-admin";
 import { db } from "@/server/db";
-import { Loading, Tooltip } from "@nextui-org/react";
+import { Button, Loading, Tooltip } from "@nextui-org/react";
 import dayjs from "dayjs";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Menu, Transition } from "@headlessui/react";
@@ -67,7 +67,7 @@ export default function LayouUser() {
           <Image height={30} src={Tambah} alt="#" />
           <h1>Tambah Pasien</h1>
         </Link>
-        <div className="px-10 overflow-x-auto">
+        <div className="px-20 overflow-x-auto">
           <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>
@@ -81,6 +81,7 @@ export default function LayouUser() {
                 <th className="px-4 py-2 font-medium text-left">Keluhan</th>
                 <th className="px-4 py-2 font-medium text-left">Nama Dokter</th>
                 <th className="px-4 py-2 font-medium text-left">Tanggal</th>
+                <th className="px-4 py-2 font-medium text-left"></th>
               </tr>
             </thead>
 
@@ -100,6 +101,17 @@ export default function LayouUser() {
                     <td className="px-4 py-2">{Data.keluhan}</td>
                     <td className="px-4 py-2">{Data.nmdokter}</td>
                     <td className="px-4 py-2">{Data.tanggal}</td>
+                    <td className="px-4 py-2 ">
+                      <Button
+                        onPress={() => {
+                          route.push(`/admin/kelola-data-pasien/${e.id}`);
+                        }}
+                        size={"xs"}
+                        className="bg-red-700"
+                      >
+                        Edit
+                      </Button>
+                    </td>
                   </tr>
                 );
               })}
