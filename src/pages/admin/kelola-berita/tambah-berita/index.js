@@ -1,6 +1,6 @@
 import LayoutAdmin from "@/components/layout-admin";
 import app, { db } from "@/server/db";
-import { Input } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -55,15 +55,24 @@ export default function Admin() {
         onSubmit={handleSubmit(addDatafromDBFirestore)}
       >
         <Input
-          className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+          placeholder="Masukkan NIK"
+          bordered
+          label="NIK"
+          type="number"
+          control={control}
+          {...register("nik", { required: true })}
+        />
+        <Input
+          bordered
+          label="Judul Berita"
           placeholder="Masukan judul berita"
           control={control}
           {...register("judul", { required: true })}
         />
         <div>
-          <label className="mr-2">Pilih Foto:</label>
-          <input
-            className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+          <label>Pilih Foto:</label>
+          <Input
+            className="mt-4"
             type="file"
             {...register("gambar")}
             onChange={(event) => {
@@ -71,15 +80,15 @@ export default function Admin() {
             }}
           />
         </div>
-        <Input
-          rows={"6"}
-          className="w-full px-3 py-1 mb-2 mr-2 rounded-lg shadow-lg"
+        <Textarea
+          bordered
+          label="Isi Berita"
           placeholder="Masukan isi berita"
           control={control}
           {...register("isi", { required: true })}
         />
         <button
-          className="w-full px-3 py-1 mb-2 duration-1000 rounded-lg shadow-lg hover:bg-gray-900 hover:text-white hover:cursor-pointer"
+          className="w-full px-3 py-1 mt-4 mb-2 duration-1000 rounded-lg shadow-lg hover:bg-gray-900 hover:text-white hover:cursor-pointer"
           type="submit"
         >
           Kirim

@@ -74,42 +74,54 @@ export default function Admin() {
           onSubmit={handleSubmit(addDatafromDBFirestore)}
         >
           <Input
+            placeholder="Masukkan NIK"
+            bordered
+            label="NIK"
             type="number"
-            placeholder="Masukan NIK"
             control={control}
             {...register("nik", { required: true })}
           />
           <Input
-            placeholder="Masukan Nama Pasien"
+            placeholder="Masukkan Nama Pasien"
+            bordered
+            label="Nama Pasien"
             control={control}
             {...register("nama", { required: true })}
           />
           <Input
+            bordered
+            label="Umur"
             type="number"
             placeholder="Masukan Umur"
             control={control}
             {...register("umur", { required: true })}
           />
           <Input
+            bordered
+            label="Tanggal Lahir"
             type="date"
             placeholder="Masukan Tanggal Lahir"
             control={control}
             {...register("tgl_lahir", { required: true })}
           />
           <Input
+            bordered
+            label="Alamat"
             placeholder="Masukan Alamat"
             control={control}
             {...register("alamat", { required: true })}
           />
           <Input
+            bordered
+            label="Keluhan"
             placeholder="Masukan Keluhan"
             control={control}
             {...register("keluhan", { required: true })}
           />
-
+          <label className="px-1 text-sm">Pilih Dokter</label>
           <select
             {...register("nmdokter")}
-            className="mt-1.5 px-2 py-2 bg-gray-100 w-full rounded-lg border-gray-300 text-gray-400 sm:text-sm"
+            className="mt-1.5 border-2 rounded-xl px-2 py-3 bg-gray-100 w-full  border-gray-300 text-gray-400 sm:text-sm"
           >
             <option value="">Pilih Nama Dokter</option>
             {data.map((e, i) => {

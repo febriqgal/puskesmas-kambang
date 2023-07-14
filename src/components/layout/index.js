@@ -16,6 +16,7 @@ const navigation = [
   { name: "Jadwal Dokter", href: "/jadwal-dokter" },
   { name: "Visi & Misi", href: "/visi-misi" },
   { name: "Struktur Organisasi", href: "/struktur-organisasi" },
+  { name: "Pendaftaran Pasien", href: "/pendaftaran-pasien" },
 ];
 const poppins = Poppins({
   subsets: ["devanagari", "latin", "latin-ext"],

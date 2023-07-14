@@ -26,6 +26,11 @@ const LayoutAdmin = ({ children }) => {
       icon: kelolapengaduan,
       href: "/admin/kelola-jadwal-dokter",
     },
+    {
+      name: "Kelola Pendaftaran Pasien",
+      icon: kelolapengaduan,
+      href: "/admin/kelola-pendaftaran-pasien",
+    },
   ];
   const route = useRouter();
   return (

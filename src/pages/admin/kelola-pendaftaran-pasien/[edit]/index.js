@@ -24,23 +24,16 @@ export default function detail() {
   dayjs.extend(relativeTime);
 
   const dataBerita = async () => {
-    const docRef = doc(db, "Pasien", `${edit}`);
+    const docRef = doc(db, "pendaftaran_pasien", `${edit}`);
     const docSnap = await getDoc(docRef);
     snapshot.current = docSnap.data();
     setIsloading(false);
   };
   const updateDataa = async (data) => {
     const push = async () => {
-      const docRef = doc(db, "Pasien", `${edit}`);
+      const docRef = doc(db, "pendaftaran_pasien", `${edit}`);
       await updateDoc(docRef, {
-        nik: data.nik,
         nama: data.nama,
-        umur: data.umur,
-        tgl_lahir: data.tgl_lahir,
-        alamat: data.alamat,
-        keluhan: data.keluhan,
-        nmdokter: data.nmdokter,
-        tanggal: data.tanggal,
       });
     };
     toast.promise(push(), {
@@ -75,68 +68,13 @@ export default function detail() {
             placeholder="Masukan judul*"
             control={control}
             disabled={isDisable}
-            defaultValue={post ? post.nik : ""}
-            {...register("nik", { required: true })}
-          />
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={isDisable}
             defaultValue={post ? post.nama : ""}
             {...register("nama", { required: true })}
           />
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={isDisable}
-            defaultValue={post ? post.umur : ""}
-            {...register("umur", { required: true })}
-          />
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={isDisable}
-            defaultValue={post ? post.tgl_lahir : ""}
-            {...register("tgl_lahir", { required: true })}
-          />{" "}
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={isDisable}
-            defaultValue={post ? post.alamat : ""}
-            {...register("alamat", { required: true })}
-          />
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={isDisable}
-            defaultValue={post ? post.keluhan : ""}
-            {...register("keluhan", { required: true })}
-          />
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={true}
-            defaultValue={post ? post.nmdokter : ""}
-            {...register("nmdokter", { required: true })}
-          />{" "}
-          <input
-            className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
-            placeholder="Masukan judul*"
-            control={control}
-            disabled={isDisable}
-            defaultValue={post ? post.tanggal : ""}
-            {...register("tanggal", { required: true })}
-          />
+
           <Button
             onPress={async () => {
-              const docRef = doc(db, "Pasien", `${edit}`);
+              const docRef = doc(db, "pendaftaran_pasien", `${edit}`);
               await deleteDoc(docRef);
               route.back();
             }}
