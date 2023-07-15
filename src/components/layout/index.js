@@ -36,7 +36,7 @@ export default function Layout({ children }) {
     <Disclosure as="nav">
       {({ open }) => (
         <div className={poppins.className}>
-          <div className="px-10 lg:px-20">
+          <div className="px-5 lg:px-20">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}

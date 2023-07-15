@@ -78,7 +78,7 @@ export default function ComCarouselHeader() {
         <Image src={Populer} alt="#" />
         <h1 className="ml-2">Berita Populer</h1>
       </div>
-      <div className="px-20 pt-5 pb-10">
+      <div className="px-5 pt-5 pb-10">
         <CarouselBerita />
       </div>
     </Layout>

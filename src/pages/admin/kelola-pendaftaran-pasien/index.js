@@ -50,7 +50,7 @@ export default function LayouUser() {
           <link rel="icon" href="/logo.jpg" />
         </Head>
 
-        <div className="px-10 mt-20 overflow-x-auto">
+        <div className="px-5 mt-20 overflow-x-auto">
           <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>

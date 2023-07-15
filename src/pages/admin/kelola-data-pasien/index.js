@@ -67,7 +67,7 @@ export default function LayouUser() {
           <Image height={30} src={Tambah} alt="#" />
           <h1>Tambah Pasien</h1>
         </Link>
-        <div className="px-10 overflow-x-auto">
+        <div className="px-5 overflow-x-auto">
           <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>

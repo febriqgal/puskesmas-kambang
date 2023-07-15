@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 import { Fragment, useEffect, useRef, useState } from "react";
 import styles from "../../../styles/Home.module.css";
 import LayoutAdmin from "@/components/layout-admin";
+import { Button } from "@nextui-org/react";
 export default function LayouUser() {
   const route = useRouter();
   dayjs.locale("id");
@@ -60,7 +61,7 @@ export default function LayouUser() {
           <link rel="icon" href="/logo.jpg" />
         </Head>
 
-        <div className="p-10 overflow-x-auto">
+        <div className="p-5 overflow-x-auto">
           <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>
@@ -68,7 +69,7 @@ export default function LayouUser() {
                 <th className="px-4 py-2 font-medium text-left">Nama</th>
                 <th className="px-4 py-2 font-medium text-left">Poli</th>
                 <th className="px-4 py-2 font-medium text-left">Jadwal</th>
-                <th className="px-4 py-2 font-medium">Status</th>
+                <th className="px-4 py-2 font-medium"> </th>
               </tr>
             </thead>
 
@@ -84,70 +85,18 @@ export default function LayouUser() {
                     <td className="px-4 py-2 font-medium">{Data.nama}</td>
                     <td className="px-4 py-2">{Data.poli}</td>
                     <td className="px-4 py-2">{Data.tanggal_jadwal}</td>
-                    <td className="flex items-center justify-center px-4 py-2">
-                      <Menu
-                        as="div"
-                        className="relative inline-block text-left"
+
+                    <td className="px-4 py-2">
+                      {" "}
+                      <Button
+                        onPress={() => {
+                          route.push(`/admin/kelola-jadwal-dokter/${e.id}`);
+                        }}
+                        size={"xs"}
+                        className="bg-red-700"
                       >
-                        <div>
-                          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-[#014E00]  px-4 py-1 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                            {Data.status}
-                            <ChevronDownIcon
-                              className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
-                              aria-hidden="true"
-                            />
-                          </Menu.Button>
-                        </div>
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items className="flex-col items-center justify-center mt-2 text-center origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <button
-                              onClick={async () => {
-                                const frankDocRef = doc(
-                                  db,
-                                  "jadwal_dokter",
-                                  `${e.id}`
-                                );
-                                await updateDoc(frankDocRef, {
-                                  status: "Ada",
-                                  tanggal_jadwal:
-                                    dayjs().format("ddd, MMM D, YYYY"),
-                                });
-                                route.reload();
-                              }}
-                              size={"xs"}
-                              className="text-black w-full hover:bg-[#014E00] hover:text-white"
-                            >
-                              Ada
-                            </button>
-                            <button
-                              onClick={async () => {
-                                const frankDocRef = doc(
-                                  db,
-                                  "jadwal_dokter",
-                                  `${e.id}`
-                                );
-                                await updateDoc(frankDocRef, {
-                                  status: "Tidak Ada",
-                                  tanggal_jadwal: "-",
-                                });
-                                route.reload();
-                              }}
-                              size={"xs"}
-                              className="text-black w-full hover:bg-[#014E00] hover:text-white"
-                            >
-                              Tidak Ada
-                            </button>
-                          </Menu.Items>
-                        </Transition>
-                      </Menu>
+                        Edit
+                      </Button>
                     </td>
                   </tr>
                 );

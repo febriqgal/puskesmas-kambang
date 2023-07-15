@@ -9,18 +9,18 @@ export default function VisiMisi() {
         <title>Sejarah - Puskesmas Kambang</title>
         <link rel="icon" href="/logo.jpg" />
       </Head>
-      <div className="flex justify-center items-center min-h-screen p-10 mb-10 mx-10 lg:mx-20 animate__animated animate__fadeInUpBig bg-gray-200 border-2 border-green-950 rounded-xl shadow-2xl">
+      <div className="flex items-center justify-center min-h-screen p-5 mx-5 mb-10 bg-gray-200 border-2 shadow-2xl lg:mx-20 animate__animated animate__fadeInUpBig border-green-950 rounded-xl">
         <div>
           <div className="mb-5">
             <h1 className="font-bold">1. Visi</h1>
-            <h1 className="list-disc ml-10">
+            <h1 className="ml-10 list-disc">
               Visi UPT Puskesmas Kambang Adalah “ Puskesmas dengan pelayanan
               prima menuju masyarakat Lengayang Sehat Mandiri”.
             </h1>
           </div>
           <div className="mb-5">
             <h1 className="font-bold">2. Misi</h1>
-            <ul className="list-disc ml-10">
+            <ul className="ml-10 list-disc">
               <li>
                 Memberikan pelayanan secara Prima dan meningkatkan kualitas
                 sumber daya manusia.

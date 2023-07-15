@@ -70,7 +70,7 @@ export default function Admin() {
 
         <Toaster />
         <form
-          className="flex space-y-3 flex-col w-full md:w-[500px] justify-center m-auto pt-10 px-10"
+          className="flex space-y-3 flex-col w-full md:w-[500px] justify-center m-auto pt-10 px-5"
           onSubmit={handleSubmit(addDatafromDBFirestore)}
         >
           <Input

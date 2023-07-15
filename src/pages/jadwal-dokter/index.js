@@ -59,13 +59,13 @@ export default function LayouUser() {
           <link rel="icon" href="/logo.jpg" />
         </Head>
 
-        <div className="overflow-x-auto px-20  pb-10">
-          <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+        <div className="px-5 pb-10 overflow-x-auto sm:px-20">
+          <table className="min-w-full text-sm bg-white divide-y-2 divide-gray-200">
             <thead className="ltr:text-left rtl:text-right bg-[#014E00] text-white">
               <tr>
-                <th className="text-left px-4 py-2 font-medium">Nama</th>
-                <th className="text-left px-4 py-2 font-medium">Poli</th>
-                <th className="text-left px-4 py-2 font-medium">Jadwal</th>
+                <th className="px-4 py-2 font-medium text-left">Nama</th>
+                <th className="px-4 py-2 font-medium text-left">Poli</th>
+                <th className="px-4 py-2 font-medium text-left">Jadwal</th>
                 <th className="px-4 py-2 font-medium">Status</th>
               </tr>
             </thead>
@@ -81,8 +81,10 @@ export default function LayouUser() {
                     <td className="px-4 py-2 font-medium">{Data.nama}</td>
                     <td className="px-4 py-2">{Data.poli}</td>
                     <td className="px-4 py-2">{Data.tanggal_jadwal}</td>
-                    <td className="px-4 py-2 flex justify-center items-center">
-                      <h1 className="bg-[#014E00] text-white rounded-md px-2 py-1">{Data.status}</h1>
+                    <td className="flex items-center justify-center px-4 py-2">
+                      <h1 className="bg-[#014E00] text-white rounded-md px-2 py-1">
+                        {Data.status}
+                      </h1>
                     </td>
                   </tr>
                 );

@@ -55,24 +55,16 @@ export default function Admin() {
         onSubmit={handleSubmit(addDatafromDBFirestore)}
       >
         <Input
-          placeholder="Masukkan NIK"
-          bordered
-          label="NIK"
-          type="number"
-          control={control}
-          {...register("nik", { required: true })}
-        />
-        <Input
           bordered
           label="Judul Berita"
           placeholder="Masukan judul berita"
           control={control}
           {...register("judul", { required: true })}
         />
-        <div>
+        <div className="mt-4">
           <label>Pilih Foto:</label>
-          <Input
-            className="mt-4"
+          <input
+            className="ml-4"
             type="file"
             {...register("gambar")}
             onChange={(event) => {

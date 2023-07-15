@@ -57,14 +57,23 @@ export default function PendaftaranPasien() {
         <div className="flex items-center justify-center min-h-screen">
           <form
             onSubmit={handleSubmit(addDatafromDBFirestore)}
-            className="flex flex-col -mt-32"
+            className="flex flex-col w-full max-w-sm px-5 -mt-32"
           >
             <Input
               label="Nama"
               placeholder="Masukkan Nama"
               {...register("nama", { required: true })}
+              className="mb-2"
             />
-            <label className="px-1 mt-4 text-sm">Pilih Dokter</label>
+            <Input
+              label="Tanggal"
+              placeholder="Masukan Tanggal"
+              control={control}
+              type="datetime-local"
+              defaultValue={post ? post.tanggal_jadwal : ""}
+              {...register("tanggal_jadwal", { required: true })}
+            />
+            <label className="mx-2 mt-2 text-sm">Pilih Dokter</label>
             <select
               {...register("nmdokter")}
               className="mt-1.5  border-2 rounded-xl px-2 py-3 bg-gray-100 w-full  border-gray-300 text-gray-400 sm:text-sm"

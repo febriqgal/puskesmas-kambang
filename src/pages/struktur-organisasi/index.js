@@ -78,28 +78,28 @@ export default function Organisasi() {
 
       <ul
         role="list"
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-10 lg:px-20 py-5"
+        className="grid grid-cols-1 gap-6 px-5 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:px-20"
       >
         {people.map((person, i) => (
           <div className="animate__animated animate__fadeInUpBig">
             <li
               key={person.nama}
-              className="col-span-1 h-full flex flex-col text-center bg-white rounded-lg shadow-xl divide-y divide-gray-200 border"
+              className="flex flex-col h-full col-span-1 text-center bg-white border divide-y divide-gray-200 rounded-lg shadow-xl"
             >
-              <div className="flex-1 flex flex-col p-8  ">
+              <div className="flex flex-col flex-1 p-8 ">
                 <Image
                   src={profile}
                   alt={"#"}
-                  className="object-cover w-32 h-32 flex-shrink-0   mx-auto rounded-full"
+                  className="flex-shrink-0 object-cover w-32 h-32 mx-auto rounded-full"
                 />
-                <h3 className="mt-6 text-gray-900 text-sm font-bold">
+                <h3 className="mt-6 text-sm font-bold text-gray-900">
                   {person.nama}
                 </h3>
-                <dl className="mt-1 flex-grow flex flex-col justify-between">
+                <dl className="flex flex-col justify-between flex-grow mt-1">
                   <dt className="sr-only">Title</dt>
                   <dt className="sr-only">Role</dt>
                   <dd className="mt-3">
-                    <span className="text-slate-500 text-xs font-semibold">
+                    <span className="text-xs font-semibold text-slate-500">
                       {person.jabatan}
                     </span>
                   </dd>
