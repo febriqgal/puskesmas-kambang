@@ -13,15 +13,15 @@ import { useForm } from "react-hook-form";
 import { toast, Toaster } from "react-hot-toast";
 import { db } from "@/server/db";
 import styles from "../../../../styles/Home.module.css";
-export default function detail() {
+export default function Detail() {
+  dayjs.locale("id");
+  dayjs.extend(relativeTime);
   const { register, handleSubmit, control } = useForm();
   const [isLoading, setIsloading] = useState(true);
   const route = useRouter();
   const { edit } = route.query;
   const snapshot = useRef(null);
   const [isDisable, setIsDisble] = useState(false);
-  dayjs.locale("edit");
-  dayjs.extend(relativeTime);
 
   const dataBerita = async () => {
     const docRef = doc(db, "jadwal_dokter", `${edit}`);
@@ -33,7 +33,6 @@ export default function detail() {
     const push = async () => {
       const docRef = doc(db, "jadwal_dokter", `${edit}`);
       await updateDoc(docRef, {
-        nama: data.nama,
         tanggal_jadwal: dayjs(data.tanggal_jadwal).format(
           "ddd, MMM D, YYYY, hh:mm"
         ),
@@ -58,7 +57,7 @@ export default function detail() {
     );
   } else {
     const post = snapshot.current;
-    console.log();
+
     return (
       <div className={styles.main}>
         <Toaster />
@@ -72,7 +71,7 @@ export default function detail() {
             control={control}
             disabled
             defaultValue={post ? post.nama : ""}
-            {...register("nama", { required: true })}
+            {...register("nama")}
           />{" "}
           <input
             className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
@@ -80,7 +79,7 @@ export default function detail() {
             control={control}
             disabled
             defaultValue={post ? post.poli : ""}
-            {...register("poli", { required: true })}
+            {...register("poli")}
           />{" "}
           <input
             className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
@@ -88,7 +87,6 @@ export default function detail() {
             control={control}
             disabled={isDisable}
             type="datetime-local"
-            defaultValue={post ? post.tanggal_jadwal : ""}
             {...register("tanggal_jadwal", { required: true })}
           />{" "}
           <Button
@@ -103,7 +101,6 @@ export default function detail() {
             Hapus
           </Button>
           <Button
-            disabled={isDisable}
             className="w-full px-3 py-1 mb-2 duration-1000 border rounded-lg shadow-lg text-slate-950 hover:bg-gray-900 hover:text-white hover:cursor-pointer"
             type="submit"
           >
