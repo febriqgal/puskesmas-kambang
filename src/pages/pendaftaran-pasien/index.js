@@ -29,7 +29,7 @@ export default function PendaftaranPasien() {
       await addDoc(collection(db, "pendaftaran_pasien"), {
         nama: data.nama,
         nmdokter: data.nmdokter,
-        tanggal: dayjs().format("ddd, MMM D, YYYY HH:mm"),
+        tanggal: dayjs(data.tanggal_jadwal).format("ddd, MMM D, YYYY HH:mm"),
       });
       reset();
     };
@@ -70,7 +70,7 @@ export default function PendaftaranPasien() {
               placeholder="Masukan Tanggal"
               control={control}
               type="datetime-local"
-              defaultValue={post ? post.tanggal_jadwal : ""}
+            
               {...register("tanggal_jadwal", { required: true })}
             />
             <label className="mx-2 mt-2 text-sm">Pilih Dokter</label>

@@ -6,7 +6,7 @@ import { Button, Loading } from "@nextui-org/react";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default function LayouUser() {
   const snapshot = useRef(null);
   const [isLoading, setIsloading] = useState(true);
   const getDBFromFirestore = async () => {
-    const querySnapshot = query(collection(db, "pendaftaran_pasien"));
+    const querySnapshot = query(collection(db, "pendaftaran_pasien"),orderBy('tanggal',"asc" ));
     const gettt = await getDocs(querySnapshot);
     snapshot.current = gettt.docs;
     setTimeout(() => {

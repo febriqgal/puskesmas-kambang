@@ -63,6 +63,7 @@ export default function detail() {
           className="flex flex-col text-slate-900 w-full px-5 sm:w-[500px]"
           onSubmit={handleSubmit(updateDataa)}
         >
+          <label className="mb-2 ml-2">Nama</label>
           <input
             className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"

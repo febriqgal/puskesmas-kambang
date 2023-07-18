@@ -44,6 +44,7 @@ export default function Detail() {
       error: <b>Terjadi kesalahan, silahkan coba lagi!</b>,
     });
     setIsDisble(true);
+    route.back();
   };
 
   useEffect(() => {
@@ -65,6 +66,7 @@ export default function Detail() {
           className="flex flex-col text-slate-900 w-full px-5 sm:w-[500px]"
           onSubmit={handleSubmit(updateDataa)}
         >
+          <label className="mb-2 ml-2">Nama Dokter</label>
           <input
             className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
@@ -73,6 +75,7 @@ export default function Detail() {
             defaultValue={post ? post.nama : ""}
             {...register("nama")}
           />{" "}
+          <label className="mb-2 ml-2">Poli</label>
           <input
             className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
@@ -81,6 +84,7 @@ export default function Detail() {
             defaultValue={post ? post.poli : ""}
             {...register("poli")}
           />{" "}
+          <label className="mb-2 ml-2">Tanggal Booking</label>
           <input
             className="w-full px-3 py-2 mb-2 mr-2 border-2 rounded-lg"
             placeholder="Masukan judul*"
